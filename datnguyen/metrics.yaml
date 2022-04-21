@@ -7,5 +7,5 @@ metric:
   display_name: Customer Lifetime Value (AUD)
   type: measure_proxy
   type_params:
-    measure: total_lifetime_value
+    measure: total_lifetime_value_dn
   tier: "1"

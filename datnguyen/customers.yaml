@@ -5,20 +5,20 @@ data_source:
     - dat@infinitelambda.com
 
   identifiers:
-    - name: customer
+    - name: customer_dn
       type: primary
       expr: customer_id
 
   measures:
-    - name: new_customers
+    - name: new_customers_dn
       description: New paid customers
       expr: customer_id
       agg: COUNT_DISTINCT
-    - name: total_orders
+    - name: total_orders_dn
       description: Customer total number of orders
       expr: number_of_orders
       agg: SUM
-    - name: total_lifetime_value
+    - name: total_lifetime_value_dn
       description: Customer total life time value
       expr: customer_lifetime_value
       agg: SUM
@@ -31,7 +31,7 @@ data_source:
       description: The date where order has been firsly placed
       type: time
       type_params:
-        is_primary: false
+        is_primary: true
         time_granularity: day
 
   mutability:
