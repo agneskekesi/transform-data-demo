@@ -31,7 +31,7 @@ data_source:
       description: The date where order has been firsly placed
       type: time
       type_params:
-        is_primary: True
+        is_primary: false
         time_granularity: day
 
   mutability:
