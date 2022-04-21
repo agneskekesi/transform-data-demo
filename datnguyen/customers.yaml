@@ -24,17 +24,25 @@ data_source:
       agg: SUM
 
   dimensions:
+    - name: ds # The name of your primary time dimension must be the same across all your data sources
+      type: time
+      type_params:
+        is_primary: True
+        time_granularity: day
     - name: country
       description: The country where the customer is located.
       type: categorical
-    - name: first_order
-      description: The date where order has been firsly placed
-      type: time
-      type_params:
-        is_primary: true
-        time_granularity: day
 
   mutability:
     type: full_mutation
 
-  sql_table: DBT_METRIC_DEMO.DAT_N_MART.CUSTOMERS
+  sql_query: |
+    select  CUSTOMER_ID
+            ,FIRST_NAME
+            ,LAST_NAME
+            ,FIRST_ORDER as DS
+            ,MOST_RECENT_ORDER
+            ,NUMBER_OF_ORDERS
+            ,CUSTOMER_LIFETIME_VALUE
+            ,COUNTRY
+    from    DBT_METRIC_DEMO.DAT_N_MART.CUSTOMERS
