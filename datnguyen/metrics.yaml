@@ -1,0 +1,11 @@
+metric:
+  name: customer_lifetime_value
+  description: | 
+    Customer Lifetime Value in AUD
+  owners:
+    - dat@infinitelambda.com
+  display_name: Customer Lifetime Value (AUD)
+  type: measure_proxy
+  type_params:
+    measure: total_lifetime_value_dn
+  tier: "1"

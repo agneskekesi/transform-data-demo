@@ -1,0 +1,14 @@
+[tool.poetry]
+name = "poc-transform-co"
+version = "0.1.0"
+description = "POC of Metrics layer against transform.co platform"
+authors = ["Dat <dat@infinitelambda.com>", "Agi <agnes.kekesi@infinitelambda.com>"]
+
+[tool.poetry.dependencies]
+python = "^3.9.6"
+numpy = "^1.20"
+transform = "1.0.20"
+transform_tools = "^1.0.2"
+
+[tool.poetry.dev-dependencies]
+poethepoet = "^0.12.3"

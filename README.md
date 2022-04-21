@@ -30,6 +30,44 @@ pip install transform
 mql setup -k your_api_key
 ```
 You will be asked to provide the API you created during setup, so have it handy.
+
+## CLI Quick Start Guide with poetry
+> Skip this if you've already use virtual env above
+
+- To start development, make sure you're in shell:
+    ```
+    python3 -m poetry shell
+    ```
+    BUT before that, let's follow the setup guidline at the first time.
+
+- Prequisites:
+    - Install Python 3.9.6+ as recommended (specified in [pyproject.toml](pyproject.toml)) 
+        > Assuming your python alias: `python3`
+
+        > Don't need to use alias if your enviroment is not multi python version
+
+    - Install `poetry`
+    ```
+    python3 -m pip install poetry
+    ```
+
+- Install the dependencies and go into shell:
+    ```
+    python3 -m poetry install && python3 -m poetry shell
+    ```
+    > NOTE: Currently it's experiencing an issue with pandas install within poetry - it might take ~5 mins to install. See: https://github.com/pandas-dev/pandas/issues/40611
+
+- Verify if you're ready:
+    ```
+    mql version
+    ```
+
+- To authenticate to Transform MQL server using the CLI, navigate to this directory and run
+  ```
+  mql setup -k <your_api_key>
+  ```
+  You will be asked to provide the API you created during setup, so have it handy.
+
 ## MQL CLI Example
 Below is a list of common MQL commands.
 
@@ -56,3 +94,4 @@ mql query --metrics revenue_usd --dimensions ds --dimensions customer__country -
 Run a ratio metric:
 ```
 mql query --metrics cancellation_rate --dimensions ds --order -ds
+```
