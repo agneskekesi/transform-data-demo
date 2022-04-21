@@ -1,0 +1,40 @@
+data_source:
+  name: customer_dn
+  description: Customer basic information, as well as some derived facts based on a customer's orders
+  owners:
+    - dat@infinitelambda.com
+
+  identifiers:
+    - name: customer
+      type: primary
+      expr: customer_id
+
+  measures:
+    - name: new_customers
+      description: New paid customers
+      expr: customer_id
+      agg: COUNT_DISTINCT
+    - name: total_orders
+      description: Customer total number of orders
+      expr: number_of_orders
+      agg: SUM
+    - name: total_lifetime_value
+      description: Customer total life time value
+      expr: customer_lifetime_value
+      agg: SUM
+
+  dimensions:
+    - name: country
+      description: The country where the customer is located.
+      type: categorical
+    - name: first_order
+      description: The date where order has been firsly placed
+      type: time
+      type_params:
+        is_primary: True
+        time_granularity: day
+
+  mutability:
+    type: full_mutation
+
+  sql_table: DBT_METRIC_DEMO.DAT_N_MART.CUSTOMERS
