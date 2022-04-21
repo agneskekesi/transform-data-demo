@@ -1,6 +1,5 @@
 # Transform Metrics Demo
 Welcome to your new Tansform Project! See full install instructions on the [install page](https://app.transformdata.io/install) to get started using Transform.
-xxx
 
 ## Resources
 * Learn more about Transform [in the docs](https://www.notion.so/transformdata/Transform-Documentation-4eb96a3207634834ab1ae8b5b23923ff)
@@ -23,12 +22,12 @@ python3 -m venv venv && source venv/bin/activate
 
 1. Install the Transform client CLI:
 ```
-pip install transform_mql
+pip install transform
 ```
 
 2. To authenticate to Transform MQL server using the CLI, navigate to this directory and run
 ```
-mql setup
+mql setup -k your_api_key
 ```
 You will be asked to provide the API you created during setup, so have it handy.
 ## MQL CLI Example
