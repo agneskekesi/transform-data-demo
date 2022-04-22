@@ -1,0 +1,44 @@
+data_source:
+  name: order_dn # _dn is a suffix helps to differentiate the name to other config-dir
+  description: Basic information about orders, as well as some derived facts based on payments
+  owners:
+    - dat@infinitelambda.com
+
+  identifiers:
+    - name: order_dn
+      type: primary
+      expr: order_id
+    - name: customer_dn
+      type: foreign
+      expr: customer_id
+
+  measures:
+    - name: total_amount
+      description: Total amount (AUD)
+      expr: amount
+      agg: SUM
+
+  dimensions:
+    - name: ds # The name of your primary time dimension must be the same across all your data sources
+      type: time
+      type_params:
+        is_primary: True
+        time_granularity: day
+    - name: status
+      description: Status of order
+      type: categorical
+
+  mutability:
+    type: full_mutation
+
+  sql_query: |
+    select   ORDER_ID
+            ,CUSTOMER_ID
+            ,ORDER_DATE as DS
+            ,STATUS
+            ,CREDIT_CARD_AMOUNT
+            ,COUPON_AMOUNT
+            ,BANK_TRANSFER_AMOUNT
+            ,GIFT_CARD_AMOUNT
+            ,AMOUNT
+    from    DBT_METRIC_DEMO.DAT_N_MART.ORDERS

@@ -1,5 +1,5 @@
 data_source:
-  name: customer_dn
+  name: customer_dn # _dn is a suffix helps to differentiate the name to other config-dir
   description: Customer basic information, as well as some derived facts based on a customer's orders
   owners:
     - dat@infinitelambda.com
