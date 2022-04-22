@@ -9,3 +9,16 @@ metric:
   type_params:
     measure: total_lifetime_value_dn
   tier: "1"
+  
+---
+metric:
+  name: total_order_amount
+  description: | 
+    Total ordered amount (AUD)
+  owners:
+    - dat@infinitelambda.com
+  display_name: Total ordered amount (AUD)
+  type: measure_proxy
+  type_params:
+    measure: total_amount
+  tier: "1"
